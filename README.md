@@ -1,36 +1,8 @@
-# Plotterfun
+# Plotterfun-color
 
-A collection of algorithms for turning images into vector art.
+A collection of algorithms for turning images into color vector art.
 
-Try it out here: [https://mitxela.com/plotterfun/](https://mitxela.com/plotterfun/)
-
-The aim is to make it simple to develop new algorithms. Each algorithm is a separate .js file and is loaded as a webworker. Some of the algorithms are my versions of other vector art programs.
-
-### Squiggle
-
-Based on [SquiggleCam](https://msurguy.github.io/SquiggleCam/) / [SquiggleDraw](https://github.com/gwygonik/SquiggleDraw). The left/right, spiral and PolygonSpiral versions apply the same squiggling to different paths.
-
-### StippleGen
-
-Iterative weighted voronoi stippling, with 2-opt travelling-salesman route optimization. I love [StippleGen](https://github.com/evil-mad/stipplegen) but it runs very slowly, and because it's single threaded the interface freezes while it's running. In porting it to javascript, I significantly rewrote parts of it in order to get it to run much faster.
-
-Makes use of [rhill's voronoi library](https://github.com/gorhill/Javascript-Voronoi) and [StackBlur](https://github.com/flozz/StackBlur), both included in minimized form in the 'external' directory.
-
-### Linedraw
-
-Port of [linedraw.py by LingDong-](https://github.com/LingDong-/linedraw)
-
-### Other algorithms
-
-- __Halftone__ by HomineLudens
-- __Boxes__ by MarkJB
-- __Random dots__ by Tim Koop
-- __Jaggy__ by Tim Koop
-- __Linescan__, __Peano__ and __Woven__ by J-Waal
-
-Pull requests for new algorithms welcome!
-
-The rest are things I came up with on my own. Delaunay is very similar to StippleGen, but after the weighted voronoi iteration the Delaunay Triangulation is plotted. There are a few variations on squiggles (sawtooth, springs) and other algorithms not based on anything in particular. Try them out, it should be fairly clear what each control does.
+Based on [mitxela/plotterfun](https://github.com/mitxela/plotterfun).
 
 ## Usage
 
