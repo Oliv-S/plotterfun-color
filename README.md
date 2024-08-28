@@ -33,3 +33,13 @@ I strongly recommend reading the code for the existing algorithms, I've tried to
 For "security" reasons, browsers refuse to run webworkers from files loaded straight from your disk. As a hacky fallback, plotterfun will detect this happening and append the script to the document, so that simple algorithms can still be developed this way. Complex algorithms will either freeze the interface while they run, or if they're asynchronous, risk running repeatedly since they cannot be killed properly.
 
 It's much better to host the files locally for development, using either node's `http-server` or `python -m http.server`. Be aware that browsers aggressively cache webworkers, it's **essential** to have the developer tools open and "Disable Cache" ticked, or you will not have any fun.
+
+# Examples
+![squiggle.png](/examples/squiggle.png)
+![squiggle_details.png](/examples/squiggle_details.png)
+![linedraw.png](/examples/linedraw.png)
+![linedraw_details.png](/examples/linedraw_details.png)
+![spiral.png](/examples/spiral.png)
+![springs.png](/examples/springs.png)
+![subline.png](/examples/subline.png)
+![subline_details.png](/examples/subline_details.png)
