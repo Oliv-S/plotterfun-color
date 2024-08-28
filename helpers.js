@@ -26,13 +26,13 @@ function pixelProcessor(config, imagePixels){
     let pixIndex  = Math.floor(x) + Math.floor(y) * width;
   
     if (contrast !== 0) {
-      b = (0.2125 * ((contrastFactor * (imagePixels.data[4 * pixIndex]     - 128) + 128) + brightness))
-        + (0.7154 * ((contrastFactor * (imagePixels.data[4 * pixIndex + 1] - 128) + 128) + brightness))
-        + (0.0721 * ((contrastFactor * (imagePixels.data[4 * pixIndex + 2] - 128) + 128) + brightness));
+      b = (0.2125 * ((contrastFactor * (imagePixels.data[4 * pixIndex]       - 128) + 128) + brightness)) 
+        + (0.7154 * ((contrastFactor * (imagePixels.data[4 * (pixIndex + 1)] - 128) + 128) + brightness))
+        + (0.0721 * ((contrastFactor * (imagePixels.data[4 * (pixIndex + 2)] - 128) + 128) + brightness));
     } else {
-      b = (0.2125 * (imagePixels.data[4*pixIndex] + brightness))
-        + (0.7154 * (imagePixels.data[4*pixIndex + 1] + brightness))
-        + (0.0721 * (imagePixels.data[4*pixIndex + 2] + brightness));
+      b = (0.2125 * (imagePixels.data[4*pixIndex] + brightness)) 
+        + (0.7154 * (imagePixels.data[4*(pixIndex + 1)] + brightness))
+        + (0.0721 * (imagePixels.data[4*(pixIndex + 2)] + brightness));
     }
     if (black) {
       b = Math.min(255-minBrightness,255-b);
@@ -51,8 +51,8 @@ function autocontrast(pixData, cutoff){
 
   function luma(x,y) {
     let i = 4*(x+width*y)
-    return pixData.data[i]*0.299 + pixData.data[i+1]*0.587 + pixData.data[i+2]*0.114 // ITU-R 601-2
-//    return pixData.data[i]*0.2125 + pixData.data[i+1]*0.7154 + pixData.data[i+2]*0.0721 // ITU-R 709
+    return pixData.data[i]*0.299 + pixData.data[i+1]*0.587 + pixData.data[i]*0.114 // ITU-R 601-2
+//    return pixData.data[i]*0.2125 + pixData.data[i+1]*0.7154 + pixData.data[i]*0.0721 // ITU-R 709
   }
 
   let hist = []
@@ -251,13 +251,11 @@ function postCircles(data){
   if (data[0].x) {
     for (let p in data) {
       let {x,y,r}=data[p];
-      if (r<0.001) r=0.001;
       pathstring += 'M'+x.toFixed(2)+','+(y-r).toFixed(2) +' a '+r.toFixed(3)+' '+r.toFixed(3)+' 0 1 0 0.001 0Z ';
     }
   } else {
     for (let p in data) {
       let [x,y,r]=data[p];
-      if (r<0.001) r=0.001;
       pathstring += 'M'+x.toFixed(2)+','+(y-r).toFixed(2) +' a '+r.toFixed(3)+' '+r.toFixed(3)+' 0 1 0 0.001 0Z ';
     }
   }
