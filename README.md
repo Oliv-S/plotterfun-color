@@ -2,6 +2,8 @@
 
 A collection of algorithms for turning images into color vector art.
 
+![linedraw.png](/examples/linedraw.png)
+
 Based on [mitxela/plotterfun](https://github.com/mitxela/plotterfun).
 
 ## Usage
